@@ -5,7 +5,16 @@ using UnityEngine;
 public class cowMov : MonoBehaviour
 {
     public float speed;
-    public int gold;
+    
+    public AudioClip audio;
+    public AudioSource audioS;
+
+    private void Start(){
+        audioS = this.GetComponent<AudioSource>();
+    }
+
+
+
 
     // Update is called once per frame
     void FixedUpdate(){
@@ -15,9 +24,11 @@ public class cowMov : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            Destroy(other.gameObject);
+        if (other.gameObject.tag == "Player"){
+            //Destroy(this.gameObject);
+            AudioSource.PlayClipAtPoint(audio,transform.position);
+            Destroy(this.gameObject);
         }
     }
+
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnV : MonoBehaviour{
 
-    public GameObject[] spwans = new GameObject[4];
-    public GameObject[] cars = new GameObject[4];
+    public GameObject[] spwans = new GameObject[8];
+    public GameObject[] cars = new GameObject[2];
 
     int s, c;
 
@@ -14,8 +14,8 @@ public class SpawnV : MonoBehaviour{
     void Start(){
         
         for (int i = 0; i < 4; i++) {
-            s = Random.Range(0, 4);
-            c = Random.Range(0, 4);
+            s = Random.Range(0, 8);
+            c = Random.Range(0, 2);
             Instantiate(cars[c], spwans[s].transform.position, spwans[s].transform.rotation);
         }
     }
